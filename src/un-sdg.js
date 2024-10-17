@@ -15,7 +15,7 @@ constructor() {
     this.width = "254px"; 
     this.height = "254px"; 
     this.label = "Sustainable Developements Logo"; 
-    this.image = "../lib/svgs/circle.png"; 
+    this.image = ""; 
     this.loading = "lazy"; 
     this.fetchPriority = "low";
     this.colorOnly = false; 
@@ -58,8 +58,8 @@ constructor() {
         --goal-16: rgb(1, 85, 138);
         --goal-17: rgb(25, 54, 103);
         //this defines how the goals should visually look on the basis of proportions
-        width: var(--width, 254px); 
-        height: var(--height, 254px); 
+        width: var(--width, 256px); 
+        height: var(--height, 256px); 
         padding: 0; 
         margin: 0; 
 
@@ -80,17 +80,19 @@ constructor() {
   }
   //this method is for updating a component based on the goal 
   updateEverything() {
-    //this line enables it to get the current value of the goal attribute 
-    const goal = this.getAttribute("goal"); 
     //this line updates the image source based on the goal 
+    this.image = new URL(
+      `../lib/svgs/svgs/goal-${this.goal}.svg`, 
+      import.meta.url
+    ).href
     if (this.goal === "all") {
       this.image = new URL(
-        `../lib/svgs/${this.goal}.svg`, 
+        `../lib/svgs/svgs/${this.goal}.svg`, 
         import.meta.url
       ).href
     } else if (this.goal === "circle") {
-      his.image = new URL(
-        `../lib/svgs/${this.goal}.svg`, 
+      this.image = new URL(
+        `../lib/svgs/svgs/${this.goal}.png`, 
         import.meta.url
       ).href
     }
@@ -188,4 +190,4 @@ constructor() {
     }
 }
 
-globalThis.customElements.define(unSdg.tag, unSdg);
+globalThis.customElements.define("un-sdg", unSdg);
