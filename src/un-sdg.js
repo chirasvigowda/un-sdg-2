@@ -5,7 +5,8 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
-import { directive } from "lit-html/directive.js";
+
+class unSdg extends I18NMixin(DDDSuper(LitElement)) {
 
 //this constructor is going to set default values for the following properties: goal, width, height, label, image, loading, fitchPrority, and colorOnly
 constructor() {
@@ -20,7 +21,7 @@ constructor() {
     this.colorOnly = false; 
   }
   //this portion of the code is going to define the properties that were set above 
-  static get Properties() {
+  static get properties() {
     return {
       goal: {type:String}, 
       width: {type:String},
@@ -30,8 +31,7 @@ constructor() {
       loading: {type:String},
       fetchPriority: {type:String, reflect: true},
       colorOnly: {type:Boolean},
-    }
-    ; 
+    }; 
   }
   //this portion of the code is going to define the styles 
   static get styles() {
@@ -94,7 +94,7 @@ constructor() {
         import.meta.url
       ).href
     }
-  }
+  
   //this switch statement is to set the label based on the goal 
   switch (goal) {
     case "circle":
@@ -155,7 +155,7 @@ constructor() {
     case "17": 
       this.label = "Goal 17: Partnerships for the Goals"; 
       break;
-
+  }
   }
   //the render method is to make the component's HTML
   render() {
@@ -165,30 +165,27 @@ constructor() {
         --width: ${this.width}; 
         --height: ${this.height}; 
       }
-    </style>`
-    //this is a wrapper div thats for the SDG icon
+    </style>
     <div 
       class="svg-wrapper"
       style="background-color: var(--goal-${this.goal});"
     >
-      ${this.colorOnly
-      ?``
-    :html`
-    <img
-      src="${this.image}"
-      alt="${this.label}"
-      loaging="${this.loading}"
-      fetchpriority="${this.fetchPriority}"
-     /> 
+      ${this.colorOnly ? `` : html`
+      <img
+        src="${this.image}"
+        alt="${this.label}"
+        loaging="${this.loading}"
+        fetchpriority="${this.fetchPriority}"
+      /> 
      `}
     </div>
     `
     ;
   }
     static get haxProperties(){
-        return new URL('./lib/${this.tag}.haxProperties.json`, import.metaurl)
+        return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
           .href
     }
-  }
+}
 
 globalThis.customElements.define(unSdg.tag, unSdg);
