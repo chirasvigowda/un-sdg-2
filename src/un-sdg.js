@@ -12,8 +12,8 @@ class unSdg extends I18NMixin(DDDSuper(LitElement)) {
 constructor() {
     super();
     this.goal = "circle"; 
-    this.width = "254px"; 
-    this.height = "254px"; 
+    this.width = "256px"; 
+    this.height = "256px"; 
     this.label = "Sustainable Developements Logo"; 
     this.image = ""; 
     this.loading = "lazy"; 
@@ -39,7 +39,10 @@ constructor() {
       super.styles, 
       css`
       :host {
-        //this defines the colors for different goals 
+        display: inline-block;
+      
+      }
+      .svg-wrapper {
         --goal-1: rgb(235, 28, 44); 
         --goal-2: rgb(210, 160, 42);
         --goal-3: rgb(44, 155, 72);
@@ -57,10 +60,6 @@ constructor() {
         --goal-15: rgb(63, 175, 73);
         --goal-16: rgb(1, 85, 138);
         --goal-17: rgb(25, 54, 103);
-        display: inline-block;
-      
-      }
-      .svg-wrapper {
         width: var(--width, 256px); 
         height: var(--height, 256px); 
         padding: 0; 

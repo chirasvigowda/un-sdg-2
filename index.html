@@ -6,14 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Demonstration for un-sdg">
   
-  //this sets the title page
   <title>un-sdg</title>
 </head>
 <body>
   <div id="demo">
     <h1>un-sdg</h1>
-    button id = "Random Goal">Random Color</button>
-    //this is the first UN SDG component with an id attribute 
+    <button id = "random">Random Goal</button>
     <un-sdg id = "first"></un-sdg>
     <br><br>
     <un-sdg goal="1"></un-sdg>
@@ -38,7 +36,6 @@
     <br><br>
     <un-sdg goal="1" colorOnly></un-sdg>
     <un-sdg goal = "2"colorOnly></un-sdg>
-    <un-sdg goal = "1" colorOnly></un-sdg>
     <un-sdg goal = "3"colorOnly></un-sdg>
     <un-sdg goal = "4"colorOnly></un-sdg>
     <un-sdg goal = "5"colorOnly></un-sdg>
@@ -59,10 +56,12 @@
   <script type="module" src="./src/un-sdg.js"></script>
   <script>
     document.querySelector("#random").addEventListener("click", () => {
-      //this is the logic to generate a random number between 1 and 17
       var theRandomNumber = Math.floor(Math.random()*17)+1; 
-      document.querySelector("#first").setAttribute("goal", theRandomNumber)
-    })
+      const unSdgElement = document.querySelector("#first"); 
+
+      unSdgElement.setAttribute("goal", theRandomNumber);
+      unSdgElement.goal = theRandomNumber; 
+    });
   </script>
 </body> 
 </html>
