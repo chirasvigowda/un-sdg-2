@@ -30,7 +30,7 @@ constructor() {
       image: {type:String},
       loading: {type:String},
       fetchPriority: {type:String, reflect: true},
-      colorOnly: {type:Boolean},
+      colorOnly: {type:Boolean, reflect: true},
     }; 
   }
   //this portion of the code is going to define the styles 
@@ -57,17 +57,14 @@ constructor() {
         --goal-15: rgb(63, 175, 73);
         --goal-16: rgb(1, 85, 138);
         --goal-17: rgb(25, 54, 103);
-        //this defines how the goals should visually look on the basis of proportions
+        display: inline-block;
+      
+      }
+      .svg-wrapper {
         width: var(--width, 256px); 
         height: var(--height, 256px); 
         padding: 0; 
         margin: 0; 
-
-      }
-      img {
-        width: 100%;
-        height: 100%; 
-
       }
       `,
     ];
