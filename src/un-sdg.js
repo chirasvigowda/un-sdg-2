@@ -50,7 +50,7 @@ constructor() {
         --goal-5: rgb(239, 64, 42);
         --goal-6: rgb(0, 173, 216);
         --goal-7: rgb(253, 183, 19);
-        --goal-8: rgb(232, 78, 12);
+        --goal-8: rgb(143, 23, 55);
         --goal-9: rgb(243, 109, 36);
         --goal-10: rgb(224, 21, 131);
         --goal-11: rgb(249, 157, 37);
@@ -60,8 +60,8 @@ constructor() {
         --goal-15: rgb(63, 175, 73);
         --goal-16: rgb(1, 85, 138);
         --goal-17: rgb(25, 54, 103);
-        width: var(--width, 256px); 
-        height: var(--height, 256px); 
+        width: var(--width, 254px); 
+        height: var(--height, 254px); 
         padding: 0; 
         margin: 0; 
       }
