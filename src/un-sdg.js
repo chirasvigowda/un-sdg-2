@@ -8,8 +8,7 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 class unSdg extends I18NMixin(DDDSuper(LitElement)) {
 
-//this constructor is going to set default values for the following properties: goal, width, height, label, image, loading, fitchPrority, and colorOnly
-constructor() {
+constructor() { //this constructor is going to set default values for the following properties: goal, width, height, label, image, loading, fitchPrority, and colorOnly
     super();
     this.goal = "circle"; 
     this.width = "256px"; 
@@ -20,8 +19,7 @@ constructor() {
     this.fetchPriority = "low";
     this.colorOnly = false; 
   }
-  //this portion of the code is going to define the properties that were set above 
-  static get properties() {
+  static get properties() { //this section of the code is going to define the properties that were set above 
     return {
       goal: {type:String}, 
       width: {type:String},
@@ -33,8 +31,7 @@ constructor() {
       colorOnly: {type:Boolean, reflect: true},
     }; 
   }
-  //this portion of the code is going to define the styles 
-  static get styles() {
+  static get styles() { //this section of the code is going to define the styles 
     return [
       super.styles, 
       css`
@@ -68,16 +65,13 @@ constructor() {
       `,
     ];
   }
-  //this method is for when the properties have to change
-  updated(changedProperties) {
+  updated(changedProperties) { //this method is for when the properties have to change
     if (changedProperties.has("goal")) {
       this.updateEverything();
     }
   }
-  //this method is for updating a component based on the goal 
-  updateEverything() {
-    //this line updates the image source based on the goal 
-    this.image = new URL(
+  updateEverything() { //this method is for updating a component based on the goal 
+    this.image = new URL( //this line updates the image source based on the goal
       `../lib/svgs/svgs/goal-${this.goal}.svg`, 
       import.meta.url
     ).href
@@ -92,9 +86,8 @@ constructor() {
         import.meta.url
       ).href
     }
-  
-  //this switch statement is to set the label based on the goal 
-  switch (goal) {
+   
+  switch (goal) { //this switch statement is to set the label based on the goal
     case "circle":
       this.label = "Sustainable Developements Logo"; 
       break; 
@@ -107,7 +100,6 @@ constructor() {
     case "2": 
       this.label = "Goal 2: Zero Hunger"; 
       break;
-
     case "3": 
       this.label = "Goal 3: Good Health and Well-Being"; 
       break;
@@ -155,8 +147,7 @@ constructor() {
       break;
   }
   }
-  //the render method is to make the component's HTML
-  render() {
+  render() { //the render method is to make the component's HTML
     return html`
     <style>
       :host {

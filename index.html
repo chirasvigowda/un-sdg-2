@@ -11,7 +11,7 @@
 <body>
   <div id="demo">
     <h1>un-sdg</h1>
-    <button id = "random">Random Goal</button>
+    <button id = "random">Random Goal</button> 
     <un-sdg id = "first"></un-sdg>
     <br><br>
     <un-sdg goal="1"></un-sdg>
@@ -32,8 +32,8 @@
     <un-sdg goal = "16"></un-sdg>
     <un-sdg goal = "17"></un-sdg>
     <br><br>
-  
-    <br><br>
+
+    <br><br> 
     <un-sdg goal="1" colorOnly></un-sdg>
     <un-sdg goal = "2"colorOnly></un-sdg>
     <un-sdg goal = "3"colorOnly></un-sdg>
@@ -52,14 +52,15 @@
     <un-sdg goal = "16"colorOnly></un-sdg>
     <un-sdg goal = "17"colorOnly></un-sdg>
     <br><br>
-  </div>
+  </div> 
   <script type="module" src="./src/un-sdg.js"></script>
-  <script>
-    document.querySelector("#random").addEventListener("click", () => {
-      var theRandomNumber = Math.floor(Math.random()*17)+1; 
-      const unSdgElement = document.querySelector("#first"); 
+  <script> 
+    document.querySelector("#random").addEventListener("click", () => { //this line adds the click event listener to the random button
+      var theRandomNumber = Math.floor(Math.random()*17)+1; //this line containes the logic necessary to generate a random number between 1 to 17
+      const unSdgElement = document.querySelector("#first"); //this line gets the first un-sdg element 
 
-      unSdgElement.setAttribute("goal", theRandomNumber);
+      // sets the goal attribute to the random number 
+      unSdgElement.setAttribute("goal", theRandomNumber); 
       unSdgElement.goal = theRandomNumber; 
     });
   </script>
